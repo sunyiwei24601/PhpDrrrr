@@ -5,10 +5,10 @@
 <div class="right"><input type="submit" name="logout" value="LOGOUT" /></div>
 -->
 <ul class="menu">
-<li class="setting">&nbsp;</li>
-<li class="sound">&nbsp;</li>
-<li class="member">&nbsp;</li>
-<li class="animation">&nbsp;</li>
+<li class="setting">ST</li>
+<li class="sound">S</li>
+<li class="member">M</li>
+<li class="animation">A</li>
 <li class="logout"><input type="submit" name="logout" value="LOGOUT" /></li>
 <li></li>
 </ul>

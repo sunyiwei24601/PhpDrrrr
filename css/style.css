@@ -131,7 +131,7 @@ ul.menu li input {
 
 ul.menu li.setting, ul.menu li.sound, ul.menu li.member, ul.menu li.animation {
     width: 15px;
-    display: none;
+    height: 15px;
 }
 
 ul.menu li.setting {

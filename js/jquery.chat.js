@@ -640,6 +640,5 @@ jQuery(function ($) {
     var dump = function ($val) {
         talksElement.prepend($val);
     };
-
     construct();
 });

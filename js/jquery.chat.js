@@ -30,7 +30,6 @@ jQuery(function ($) {
     var userIcon = null;
 
     var messageLimit = 50;
-
     var construct = function () {
         var url = location.href.replace(/#/, '');
 
@@ -201,10 +200,11 @@ jQuery(function ($) {
     };
 
     var writeMessages = function (data) {
+        console.log($(data).find("talks"));
         $.each($(data).find("talks"), writeMessage);
     };
 
-    var writeMessage = function () {
+    var writeMessage = function (index) {
         var id = $(this).find("id").text();
 
         if ($("#" + id).length > 0) {
@@ -216,7 +216,27 @@ jQuery(function ($) {
         var message = trim($(this).find("message").text());
         var icon = trim($(this).find("icon").text());
         var time = trim($(this).find("time").text());
+        if (message.indexOf("雪花")!=-1 && index == 24) {
+            console.log("雪花resume");
+            snowStorm.toggleSnow();
+        }
+        if (message.indexOf("停下")!=-1 && index == 24) {
+            console.log("雪花freeze");
+            snowStorm.freeze();
+        }
 
+        if (message.indexOf("烟花")!=-1 && index == 24){
+            console.log("烟花start");
+            firework.start();
+        }
+        if (message.indexOf("消失")!=-1 && index == 24){
+            console.log("烟花stop");
+            firework.stop();
+            canvas = document.getElementsByTagName('canvas')[0];
+            ctx = canvas.getContext('2d');
+            ctx.clearRect(0,0, canvas.width,canvas.height);
+
+        }
         name = escapeHTML(name);
         message = escapeHTML(message);
 

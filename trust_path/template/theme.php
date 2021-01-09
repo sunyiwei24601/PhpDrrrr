@@ -19,8 +19,9 @@ useComet = <?php e(DURA_USE_COMET) ?>;
 
     <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/translator.js"></script>
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/language/<?php e(Dura::$language) ?>.js"></script>
+<script type="text/javascript" src="<?php e(DURA_URL) ?>/js/snowStorm.js"></script>
 
-<?php if ( Dura::$controller == 'room' ) : ?>
+    <?php if ( Dura::$controller == 'room' ) : ?>
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/jquery.sound.js"></script>
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/jquery.corner.js"></script>
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/jquery.chat.js"></script>
@@ -32,4 +33,10 @@ useComet = <?php e(DURA_USE_COMET) ?>;
 <?php e($content) ?>
 </div>
 </body>
+<canvas></canvas>
+<script type="text/javascript" src="<?php e(DURA_URL) ?>/js/three.js"></script>
+<script type="text/javascript" src="<?php e(DURA_URL) ?>/js/perlin.js"></script>
+
+<script type="text/javascript" src="<?php e(DURA_URL) ?>/js/mountain.js"></script>
+
 </html>

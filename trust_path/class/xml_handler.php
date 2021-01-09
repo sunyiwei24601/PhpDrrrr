@@ -31,7 +31,6 @@ class Dura_Class_XmlHandler
 
         libxml_use_internal_errors(true);
         $xml = simplexml_load_file($file, $this->className, LIBXML_NOCDATA);
-
         if (!$xml) {
             $error = array();
             $error['file'] = $file;

@@ -169,7 +169,7 @@ class Dura_Controller_CreateRoom extends Dura_Abstract_Controller
         if (!$roomHandler->save($id, $roomModel)) {
             throw new Exception(t("Data Error: Room creating failed."));
         }
-
+        //给本机注册设定一个房间号
         Dura_Class_RoomSession::create($id);
 
         Dura::redirect('room');

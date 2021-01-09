@@ -71,17 +71,19 @@ jQuery(function ($) {
         showControllPanel();
 
         if (useComet) {
+            console.log("here is a comet");
             getMessages();
         }
         else {
             var timer = setInterval(function () {
                 getMessagesOnce();
-            }, 1500);
+            }, 150);
         }
 
         $.each($(".bubble"), addTail);
     };
 
+    // 给各个组件增加监视器，来执行特定函数
     var appendEvents = function () {
         formElement.submit(submitMessage);
         textareaElement.keyup(enterToSubmit);
@@ -96,6 +98,7 @@ jQuery(function ($) {
         settingPannelElement.find("input[name=ban]").click(banUser);
     };
 
+    // 发送信息
     var submitMessage = function () {
         var message = textareaElement.val();
         message.replace(/[\r\n]+/g, "");
@@ -143,6 +146,7 @@ jQuery(function ($) {
         return false;
     };
 
+    //从ajax中获取xml文件，并将数据传输给updateProccess
     var getMessagesOnce = function () {
         if (isLoading || isLoggedOut) {
             return;
@@ -277,6 +281,7 @@ jQuery(function ($) {
         separateMemberList();
     };
 
+    //自己发送消息时，显示一条数据
     var writeSelfMessage = function (message) {
         var name = escapeHTML(userName);
         var message = escapeHTML(message);
@@ -291,6 +296,7 @@ jQuery(function ($) {
         weepMessages();
     };
 
+    //确保传来的xml没有错误
     var validateResult = function (data) {
         var error = $(data).find("error").text() * 1;
 

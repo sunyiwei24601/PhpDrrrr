@@ -37,6 +37,6 @@ useComet = <?php e(DURA_USE_COMET) ?>;
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/three.js"></script>
 <script type="text/javascript" src="<?php e(DURA_URL) ?>/js/perlin.js"></script>
 
-<script type="text/javascript" src="<?php e(DURA_URL) ?>/js/mountain.js"></script>
+<!--<script type="text/javascript" src="--><?php //e(DURA_URL) ?><!--/js/mountain.js"></script>-->
 
 </html>

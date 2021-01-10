@@ -235,7 +235,11 @@ jQuery(function ($) {
             canvas = document.getElementsByTagName('canvas')[0];
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0, canvas.width,canvas.height);
-
+        }
+        if (message.indexOf("隐藏")!= -1 && index == 24) {
+            console.log("隐藏输入栏");
+            buttonElement.slideToggle();
+            textareaElement.slideToggle();
         }
         name = escapeHTML(name);
         message = escapeHTML(message);

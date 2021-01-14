@@ -200,43 +200,45 @@ jQuery(function ($) {
     };
 
     var writeMessages = function (data) {
-        console.log($(data).find("talks"));
-        $.each($(data).find("talks"), writeMessage);
+        var talks = $(data).find("talks");
+        $.each(talks, function(index) {writeMessage(this, index, talks.length) });
     };
 
-    var writeMessage = function (index) {
-        var id = $(this).find("id").text();
+    var writeMessage = function (t, index, len) {
+        var id = $(t).find("id").text();
 
         if ($("#" + id).length > 0) {
             return;
         }
 
-        var uid = trim($(this).find("uid").text());
-        var name = trim($(this).find("name").text());
-        var message = trim($(this).find("message").text());
-        var icon = trim($(this).find("icon").text());
-        var time = trim($(this).find("time").text());
-        if (message.indexOf("雪花")!=-1 && index == 24) {
+        var uid = trim($(t).find("uid").text());
+        var name = trim($(t).find("name").text());
+        var message = trim($(t).find("message").text());
+        var icon = trim($(t).find("icon").text());
+        var time = trim($(t).find("time").text());
+        console.log("写下数据2333", index, len, message)
+
+        if (message.indexOf("雪花")!=-1 && index == len - 1) {
             console.log("雪花resume");
             snowStorm.toggleSnow();
         }
-        if (message.indexOf("停下")!=-1 && index == 24) {
+        if (message.indexOf("停下")!=-1 && index == len - 1) {
             console.log("雪花freeze");
             snowStorm.freeze();
         }
 
-        if (message.indexOf("烟花")!=-1 && index == 24){
+        if (message.indexOf("烟花")!=-1 && index == len - 1){
             console.log("烟花start");
             firework.start();
         }
-        if (message.indexOf("消失")!=-1 && index == 24){
+        if (message.indexOf("消失")!=-1 && index == len - 1){
             console.log("烟花stop");
             firework.stop();
             canvas = document.getElementsByTagName('canvas')[0];
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0, canvas.width,canvas.height);
         }
-        if (message.indexOf("隐藏")!= -1 && index == 24) {
+        if (message.indexOf("隐藏")!= -1 && index == len - 1) {
             console.log("隐藏输入栏");
             buttonElement.slideToggle();
             textareaElement.slideToggle();
